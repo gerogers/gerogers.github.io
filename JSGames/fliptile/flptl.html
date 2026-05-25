@@ -1,0 +1,131 @@
+<!DOCUMENT HTML>
+<! vi:set ts=50 sw=2 ai ml: >
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1">
+    <title>fliptile</title><link rel="stylesheet" href="fliptile.css">
+</head>
+<body onresize="resize()">
+  <div>
+    <div class="topnav" id="topline">
+      <div class="dropdown">
+        <button onclick="reset()" class="dropbtn">Restart</button>
+      </div>
+      <div class="dropdown">
+        <button onclick="nextLevel()" class="dropbtn">Next Level</button>
+      </div>
+      <div class="dropdown">
+        <button onclick="level()" class="dropbtn">Levels</button>
+        <div id="menuDrop" class="dropdown-content">
+          <b>Choose a puzzle</b><br>
+          <a href="#4" onclick="puzl(0);return false;">one way</a>
+          <a href="#4" onclick="puzl(1);return false;">2 targets (3x2)</a>
+          <a href="#4" onclick="puzl(2);return false;">1 target, 4.5 bricks</a>
+          <a href="#4" onclick="puzl(3);return false;">2 targets (2x3)</a>
+          <a href="#4" onclick="puzl(4);return false;"
+          >2 targets, 5 spinners</a>
+          <a href="#4" onclick="puzl(5);return false;">2 targets, 4 bricks</a>
+          <a href="#4" onclick="puzl(6);return false;">1 target (3x3)</a>
+          <a href="#4" onclick="puzl(7);return false;">1 target (4x4)</a>
+          <a href="#4" onclick="puzl(8);return false;">2 targets (2x4)</a>
+          <a href="#4" onclick="puzl(9);return false;">2 targets, 2 bricks</a>
+          <a href="#4" onclick="puzl(10);return false;">2 targets, 2 bricks again</a>
+          <a href="#4" onclick="puzl(11);return false;">2 trg, 5 spn, again</a>
+          <a href="#4" onclick="puzl(12);return false;">2 targets, 1 dbl brick
+          </a>
+          <a href="#4" onclick="puzl(13);return false;">4 targets, 1 brick</a>
+          <a href="#4" onclick="puzl(14);return false;">4 targets, 2 bricks</a>
+          <a href="#4" onclick="puzl(15);return false;">4 targets, 4.5 bricks
+          </a>
+          <a href="#4" onclick="puzl(16);return false;">2 targets, tunnel</a>
+          <a href="#4" onclick="puzl(17);return false;">7 challenges by Andrea for 2022</a>
+          <a href="#4" onclick="puzl(18);return false;">Andrea 2022 number 2</a>
+          <a href="#4" onclick="puzl(19);return false;">Andrea 2022 number 3</a>
+          <a href="#4" onclick="puzl(20);return false;">Andrea 2022 number 4</a>
+          <a href="#4" onclick="puzl(21);return false;">Andrea 2022 number 5</a>
+          <a href="#4" onclick="puzl(22);return false;">Andrea 2022 number 6</a>
+          <a href="#4" onclick="puzl(23);return false;">Andrea 2022 number 7</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="reverse()" class="dropbtn">Reverse View</button>
+      </div>
+      <div class="dropdown">
+        <button onclick="undo()" class="dropbtn">Undo</button>
+      </div>
+      <div class="dropdown">
+        <button onclick="about()" class="dropbtn">About</button>
+        <div id="helpDrop" class="dropdown-content">
+          <a href="#5" onclick="about();return false;">
+          Flip Tile ver 0.97,<br>&copy; Graham Rogers, 2021-2022
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="puzzleId" class="heading-text">Puzzle name</div>
+    <canvas id="canvas" onmouseDown="mouseDown(event)"
+      onmouseUp="mouseUp(event)">
+      <param class="params" title="one way"
+        value="oAB38/X28PDw8Prw+vDw8PD79f/19/X2+vDa8Nrw+vnlCqUFtf7w8HrwevD68PD59f31/AAAAAAAAAAAAAAAAAAAAFCgAAAAAAAAAABpIkgjKiUoASsQKRIqISpj2HI="></param>
+      <param class="params" title="2 targets (3x2)" value=
+        "oABV8NPW8PDjDw+28OsPD77w6Q8PvPDweXzw8AAAACgACCAAKAAAAABYFGkgSCFMItw0">
+      </param>
+      <param class="params" title="1 target, 4.5 bricks"
+        value="oAB18PDw8vDz19fe8OsaSiq26yoKir7pihpKvvB7fX388Pjw8PAAAAAAAAVVAFVQBVUAAAAAAABpA0gT2GE="></param>
+      <param class="params" title="2 targets (2x3)"
+        value="oABF8NPX1vDjCQYJtukDDAO88Hl9fPAAAABpYAw8AAAAWABpA0wSSCLcMA==">
+      </param>
+      <param class="params" title="2 targets, 5 spinners" value=
+        "oABV8NP31/bjBY8KvPlPCh/24wotBbz5ffV88AAAAKBQAFAAUKAAAABcAGkESBJMMthE">
+      </param>
+      <param class="params" title="2 targets, 4 bricks"
+        value="oABl8PPX1vDwyxtFtuMVTh76+ksbRbzpFU4+8PB5ffzwAAAACqAKoAAKoAqgAAAAaQJcEEwjSDHYRA=="></param>
+      <param class="params" title="1 target (3x3)" value=
+        "oAB38NP11vPX9uMKpQqvBb75X/Ve+lv84wWnBa0Ktvpb/Fv2WvrrBacKrwW++X38efx5/AAAAABQUKAAAAAAoKBQAAAAAKBQoAAAAABYAGkByFU="></param>
+      <param class="params" title="1 target (4x4)"
+      value="oABn8PDT1tPW8PDhDQ4HDrbw4w4JCQ688OkNAwMNtvDhCw0LDrzw8Hl8eXzwAAAAAA3n4ADpngANM9AAvb4AAAAAaRFYQMhB"></param>
+      <param class="params" title="2 targets (2x4)" value=
+        "TG9zdCBzb21ldGhpbmc/IFByZXNzIFJldmVyc2UgVmll9wBk8PP28NPf39YKCgIKCggKCnl/f3zw+fzwAAAAACiiiigAAAAAaQJYA0QhQDLcUw=="></param>
+      <param class="params" title="2 targets, 2 bricks"
+        value="oABE8NPX9uMeQL7rGkq8+X188AAACqAOAAAAaQNYEkQSSCLUIg=="></param>
+      <param class="params" title="2 targets, 2 bricks again"
+      value="oABE89XW8OkXTbbjHUe8+XV88AAACqAKoAAAWANEEmkTQCLcMw=="></param>
+      <param class="params" title="2 trg, 5 spn, again" value=
+        "oABV8NP11vDjDIcDtvpLDB766QMtDLzwefV88AAAADDAADAAwDAAAABpAlgERBNAMdxA">
+      </param>
+      <param class="params" title="2 targets, 1 dbl brick" value=
+        "oABk8PDT9vDjJb7z7aC8+eegtvDphb7w8Hn8AAAAoADQAHAAoAAAaQNAElgiXDLEQg==">
+      </param>
+      <param class="params" title="4 targets, 1 brick" value=
+        "oABV8PPW8PDz7Se28Pnnqr328OmNt/zw8Hn88AAAAAoAAPAACgAAAABpAVgDTBJEElgUXDBIMkAy3EE="></param>
+      <param class="params" title="4 targets, 2 bricks"
+        value="oABE8NPW8OMtLbbphYW88Hl88AAABVAHcAAAWABYA2kQTBFEEkAhSCJcMNwz">
+      <param class="params" title="4 targets, 4.5 bricks" value=
+        "oABV8NPX1vDjIBpAtuuFDyW+6RBKgLzweX188AAAAPXwCvoA9fAAAABcEUASWBNpFEQhRCNYMUAy3DM="></param>
+      <param class="params" title="2 targets, tunnel"
+        value="VG8gcGFzcyB0aHJvdWdoIHR1bm5lbCwgY2xpY2sgc3BhY2UgYmV5b25kIGn0AEPw0/bjCr7pCr7wefwDY16V4JxcAGkCTBE4EkghMCLYMA=="></param>
+      <param class="params" title="7 challenges by Andrea for 2022" value=
+        "oABE8NP28OMFn/b5bwq88Pl88AAACgAAUAAAWDNIIVwATBLpEw=="></param>
+      <param class="params" title="Andrea 2022 number 2"
+        value="oABU8NP28OMDn/b7Twm+6QY//PB5/PAAAAMAAJAGAAAAWENcA0gSTDLpIA==">
+      </param>
+      <param class="params" title="Andrea 2022 number 3" value=
+        "oABm8PDz1vDw8NPPCpbw4wUMDwu26Q4PAwW88GkKP3zw8PB5/PDwAAAAAAUACs+wDvOgAFAAAAAAWAFcVEwjSDLpFA=="></param>
+      <param class="params" title="Andrea 2022 number 4" value=
+        "oABm8PPX1tP2888KBQ2+6woPBge86QUJBQu24w4LBwO8+X18eXzwAAAAAFrQBfZwCpqwDrcwAAAAWFVIIukR"></param>
+      <param class="params" title="Andrea 2022 number 5" value=
+        "oABV8NP31vDjBY8FtukOCR/+8GkHBbzw8Hl88AAAAKCgDpAAB6AAAABYAFxESCNMEukx">
+      </param>
+      <param class="params" title="Andrea 2022 number 6" value=
+        "oABm8PDw0/bw8PPHC77w8OsDHvrw8PpLDL7w8OsOPfzw8Pl88PDwAAAAAAsAADAAAAwAAOAAAAAASBJMQ1g1XCDpBA==">
+      </param>
+      <param class="params" title="Andrea 2022 number 7" value=
+        "oABl8NP31vDjBY8KtukNBgm+4wYJB77pCi8FvPB5/XzwAAAAoFANaQBpcAUKAAAAaSBMEkhCWATcVA==">
+      </param>
+      Your browser does not support the canvas element.
+    </canvas>
+  </div>
+  <script src="flptl.js" type="text/javascript"></script>
+</body>
+</html>

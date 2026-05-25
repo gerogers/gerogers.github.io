@@ -1,0 +1,85 @@
+<! vi:se sw=4 ai ml:>
+<! @(#)moku_menus.html	1.2 24/06/12>
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="Gomoku.css">
+</head>
+<body bgcolor=#e0ffe0>
+<H2>Gomoku - Menus</H2>
+<p>Return to <a href="helpIndex.html">index</a>.
+To leave help, click on the Help drop-down menu.</p>
+<p>There are four drop down menus</p>
+<ul>
+    <li><a href="#moku_actions">Actions</a></li>
+    <li><a href="#moku_level">Level</a></li>
+    <li><a href="#moku_options">Options</a></li>
+    <li><a href="#moku_help">Help</a></li>
+</ul>
+<ul>
+    <li><a name=moku_actions><h2>Actions</h2></a></li>
+    The Actions menu drops down into 4 headings:
+    <ol><li><a href="#action_new">New Game</a></li>
+        <li><a href="#action_load">Load saved game</a></li>
+        <li><a href="#abort">Abort Load</a></li>
+        <li><a href="#action_save">Save this game</a></li>
+    </ol>
+    <ol><H3><li><a name=action_new>New Game</a></H3>
+        This action clears the board and starts a new game with the
+        current Sub-Goal list (see <a href="moku_play_levels.html">
+	Sub-Goals</a>).</li>
+        <H3><li><a name=action_load>Load saved game</a></H3>
+        The Load menu provides a mechanism for restoring previously saved
+        situations. The Load menu drops down to 3 sub-headings:</li>
+        <ul><li><a name=LoadSGs>Load sub-goals</a><br>
+            Loads a saved set of Sub-Goals, permitting a previously
+            developed level of play to be restored</li>
+            <li><a name=LoadSaved>Load saved game</a><br>
+            Loads a saved game history, such as a saved partially played
+            game, leaving the play level (sub-goal list) unaffected</li>
+            <li><a name=LoadAll>Load sub-goals and game<br>
+            Loads a full history containing both Sub-Goals and played
+            moves</li>
+        </ul>
+        <H3><li><a name="action_abort">Abort Load</a></H3>
+        If you press Load saved game in error or if you can't find the
+        saved file, you can use Actions/Abort Load to abort the Load
+        action
+        <H3><li><a name="action_save">Save this game</a></H3>
+        The Save menu provides a mechanism for saving the current game.
+        The Save menu drops down to 3 sub-headings:</li>
+        <ul><li><a name="SaveSGs">Save sub-Goals</a><br>Displays the
+            current set of sub-goals in a format suitable for saving
+            to a local file using cut and paste</li>
+            <li><a name=SaveGame>Save current game sequence</a><br>
+            Displays the current game history for saving to file</li>
+            <li><a name=SaveAll>Save sub-goals and game<br>
+            Saves a full history containing both Sub-Goals and played
+            moves</li>
+        <ul>
+    </ol>
+    <H2><li><a name=moku_level>Level</a></H2></li>
+    The &quot;level&quot; menu offers three preset difficulty levels:
+    <ol><li><a name=minimum>Minimum</a></li>
+    This is the starting level and comprises a single sub-goal. The prime
+    goal is to form 5 in a row. The first sub-goal describes a situation
+    such that after playing a single piece, a pattern is left comprising
+    either 4 in a row with both ends open (.xxxx.) or else two instances
+    of 4 in a row, each of which has one end open ( 2 of *xxxx.). The
+    sub-goal thus describes a situation from which a win may be forced in
+    2 moves.
+    <li><a name=medium>Medium</a></li>
+    The intermediate or medium level adds additional sub-goals covering
+    all possible patterns from which a win can be forced in 3 moves.
+    <li><a name=tricky>Tricky</a></li>
+    The preset collection of sub-goals set up under the &quot;tricky&quot;
+    banner represents the sub-goals automatically generated after a good
+    many games had been played by a skillful player.
+    </ol>
+    <H2><li><a name=moku_options>Options</a></H2></li>
+    <H2><li><a name=help>Help</a></H2></li>
+</ul>
+</body>
+</html>
+

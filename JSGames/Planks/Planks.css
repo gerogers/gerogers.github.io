@@ -1,0 +1,111 @@
+body {
+  margin: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  overflow: hidden-y;
+}
+
+.topnav {
+  background-color: #eeeeee;
+}
+
+.btn-group {
+  background-color: #e0e0e0;
+  text-align: center;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+}
+
+.button {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  padding: 1px 3px;
+  width: 23%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.okbtngrp {
+  background-color: white;
+  text-align: center;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+  margin: 4px 0px;
+}
+
+.okBtn {
+  border:1px solid black;
+  color: black;
+  background-color: white;
+  padding: 1px 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  position: relative;
+  top: 0%;
+  left: 0%;
+  cursor: pointer;
+}
+
+.done {
+  border: 1px solid black;
+  color: black;
+  padding: 1px 3px;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.display-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 260px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.display-content a {
+  color: black;
+  padding: 4px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.show {
+    display: block;
+}
+
+.heading-text {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ccccff;
+  font-size: 16px;
+  color: black;
+  padding: 3px;
+  text-align: center;
+}
+
+.aboutTxt {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.canvas .loadSave {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+label {
+  display: block;
+}

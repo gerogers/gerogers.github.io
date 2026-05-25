@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="Boxup.css">
+</head>
+
+<body>
+  <div>
+    <div class="topnav">
+      <div class="dropdown">
+        <button onclick="actions()" class="dropbtn">Actions</button>
+        <div id="actionsDrop" class="dropdown-content">
+          <a href="#1" onclick="reset();return false;">Reset</a>
+          <a href="#2" onclick="next();return false;">Next</a>
+          <a href="#3" onclick="prev();return false;">Prev</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="help()" class="dropbtn">Help</button>
+        <div id="helpDrop" class="dropdown-content">
+          <a href="#4" onclick="about();return false;">About</a>
+          <a href="#5" onclick="instructions();return false;">Instructions</a>
+        </div>
+      </div>
+      <div class="dropdown">
+	<div id="messageDrop" class="dropdown-content">
+	  <a href="#6" onclick="OKbtn();return false;">Congratulations!<br><br>OK</a>
+        </div>
+      </div>
+      <br>
+    </div>
+    <div id="puzzleId" class="heading-text">Well done!</div>
+    <canvas id="boxup" width="370" height="370"
+      onclick="mouseClick(event)">
+        Your browser does not support the canvas element.
+    </canvas>
+    <div id="movesId" class="score-text"></div>
+  </div>
+  <script src="Boxup.js" type="text/javascript"></script>
+</body>
+</html>

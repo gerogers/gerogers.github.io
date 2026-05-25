@@ -1,0 +1,100 @@
+
+<! vi:set sw=2>
+<! @(#)Gomoku.html	1.4 24/06/12>
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="Gomoku.css">
+</head>
+
+<body onresize="resize()">
+<div id="parentId" class="dad">
+  <div id="leftDivId" class="div1">
+    <div id="topnav" class="topnav">
+      <div class="dropdown">
+	<button onclick="actions()" class="dropbtn">Actions</button>
+	<div id="actionsDrop" class="dropdown-content">
+	  <a href="#1" onclick="fnNewGame();return false;">New Game</a>
+	  <a href="#1" onclick="load();return false;">Load saved game</a>
+          <a href="#1" onclick="fnAbortLoad();return false;">Abort Load</a>
+	  <a href="#0" onclick="save();return false;">Save this game</a>
+	</div>
+      </div>
+      <div class="dropdown">
+	<button onclick="level()" class="dropbtn">Level</button>
+	<div id="levelDrop" class="dropdown-content">
+	  <a href="#2" onclick="lvlMin();return false;">Minimum</a>
+	  <a href="#2" onclick="lvlMed();return false;">Medium</a>
+	  <a href="#2" onclick="lvlTricky();return false;">Tricky</a>
+	</div>
+      </div>
+      <div class="dropdown">
+	<button onclick="options()" class="dropbtn">Options</button>
+	<div id="optionsDrop" class="dropdown-content">
+	  <a href="#3" onclick="brdDims();return false;"
+	  >Board Dimensions </a>
+	  <a href="#3" onclick="fiveARow();return false;"
+	  >Strict 5-in-a-row?</a>
+	  <a href="#3" onclick="logSGsSeen();return false;"
+	  >Log subgoals seen?</a>
+	  <a href="#3" onclick="log3waySGs();return false;"
+	  >Log 3-way SG overlaps?</a>
+	</div>
+      </div>
+      <div class="dropdown">
+	<button onclick="help()" class="dropbtn">Help</button>
+	<div id="helpDrop" class="dropdown-content">
+	  <a href="#0" onclick="GomokuHelp();return false;"
+	  >Gomoku help</a>
+	  <a href="#0" onclick="helpAbout();return false;">About</a>
+	</div>
+      </div>
+      <br>
+    </div>
+    <div id="btn-group" class="btn-group">
+      <button id="passId" class="button" onclick="fnPass()">Pass</button>
+      <button id="undoId" class="button" onclick="fnUndo()">Undo</button>
+      <button id="redoId" class="button" onclick="fnRedo()">Redo</button>
+      <button id="twoId" class="button" onclick="fntwo()">2</button>
+      <button id="historyId" class="button" onclick="fnHistory()"
+	      >History
+      </button>
+      <button id="SGsId" class="button" onclick="fnSGs()">SGs</button>
+    </div>
+    <div id="inputDiv" hidden=true>
+      <form id="fileForm" spellcheck="false" action="#0">
+        <label for="inputId">Select file</label>
+        <input type="file" id="inputId" name="inputId" onchange="readDataFile()"
+        </input>
+      </form>
+    </div>
+    <div>
+      <canvas id="canvasId" class="canvas" onclick="fnOnClick(event)">
+	Your browser does not support the canvas element.
+      </canvas>
+      <div id="helperId" > </div>
+    </div>
+  </div>
+  <div id="rtDivId" class="div2" hidden=true>
+    <form spellcheck="false" action="#0">
+      <label id="textLbl" class="label" for="rtTA"></label>
+      <div class="grow-wrap">
+	<textarea name="rtTA" id="rtTA" onInput=
+                  "this.parentNode.dataset.replicatedValue = this.value">
+        </textarea>
+      </div>
+    </form>
+  </div>
+  <div id="saveDiv" class="div2" hidden=true>
+    <label id="text2Lbl" class="label" for="rtTA2"></label>
+    <textarea spellcheck="false" name="text2" id="rtTA2" rows=23 cols=40>
+    </textarea>
+    <button id="DoneBtn" onclick="fnDone()">Click here when done</button>
+  </div>
+</div>
+
+<script src="Gomoku.js" type="text/javascript"></script>
+</body>
+</html>
+

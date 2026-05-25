@@ -1,0 +1,87 @@
+<!doctype html>
+<! vi:set ts=50 sw=2 ai ml: >
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1,
+          maximum-scale=1,user-scalable=no">
+    <title>Plank Puzzles</title>
+    <link rel="stylesheet" href="Planks.css">
+</head>
+<body onresize="resize()">
+  <div id="frame">
+    <div id="puzzleId" class="heading-text">Puzzle name</div>
+    <div id="topBtnsId" class="btn-group">
+      <button id="restartId" class="button"
+        onclick="fnRestart()">Restart</button>
+      <button id="prevId" class="button" onclick="fnPrev()">Prev puzzle</button>
+      <button id="nextId" class="button" onclick="fnNext()">Next puzzle</button>
+      <button id="aboutId" class="button" onclick="fnAbout()">About</button>
+    </div>
+    <div id="loadSaveId" class="loadSave">
+      <div id="loadMsgId" class="loadMsg"></div>
+      <form spellcheck="false" action="#0">
+          <textarea name="text" id="textId" rows="20" cols="50"></textarea>
+      </form>
+      <div class="btn-group">
+      <button id="doneSave" class="done" onclick="fnDoneSave()">Done</button>
+      </div>
+    </div>
+    <canvas id="planksId" class="canvas"
+      onmousedown="mouseDown(event)" onmouseup="mouseUp(event)">
+      <! The first param may optionally be used to define colours >
+      <param id="colours" class="params" title="colours" name="optional"
+        value="swamp=#00ff00 swampWin=#00ffff land=#009900 grid=#000000
+          log=#707000 activeLog=#ffa500 target=#ff0000 plank=#ffff00">
+      </param>
+
+      <param class="params" title="Deep-end" name="750163142401214144"
+        value="3125402453235313641245"></param>
+      <param class="params" title="One-by-one" name="750163515223240121"
+        value="312430253135423463125"></param>
+      <param class="params" title="Warm-up" name="750163011112141040"
+        value="314540124313532563124"></param>
+      <param class="params" title="Swamped" name="860174011142441040"
+        value="31454013441246335631473125"></param>
+      <param class="params" title="Stumped" name="970284102002225053"
+        value="512357314630274125652347841346512567"></param>
+      <param class="params" title="Smash-hit" name="A80295636402222427"
+        value="51247832385025674136841246534579315842356"></param>
+      <param class="params" title="Genesis" name="B903A5363760620333"
+        value="41367414793456403894126752478A3359313641469"></param>
+      <param class="params" title="Hello-hex" name="B902A60232364648686"
+        value="41348613567940357228314926752348A2133146"></param>
+      <param class="params" title="Log-less" name="9704820426636610546"
+        value="315733473268413562054245741246"></param>
+      <param class="params" title="Four-by-four"
+                            name="97028450514565023226666"
+        value="31454135630372354247831463267"></param>
+      <param class="params" title="Route-66" name="B902A6657548680232"
+        value="413484367940357612458931474367952348A51358941469"></param>
+      <param class="params" title="Twister" name="9705813276053526466"
+        value="4124724842367215172036124567"></param>
+      <param class="params" title="Double-twist" name="A803943050033643876"
+        value="41358314842568403464248931373358512378"></param>
+      <param class="params" title="Triple-twist" name="B904A42022043434786"
+        value="41268434595124791180345789A32373368314842679"></param>
+      <param class="params" title="Fiendish" name="A801960121132336765787"
+        value="6124578302551346841267153248423793158"></param>
+      Your browser does not support the canvas element.
+    </canvas>
+    <div id="aboutDiv">
+      <div id="aboutTxt" class="aboutTxt"></div>
+      <div id="okbtngrp" class="okbtngrp">
+        <button id="okBtn" class="okBtn" onclick="fnAboutDone()">OK</button>
+      </div>
+    </div>
+    <div id="btmBtnsId" class="btn-group">
+      <button id="saveId" class="button" onclick="fnSave()">Save</button>
+      <button id="undoId" class="button" onclick="fnUndo()">Undo</button>
+      <button id="redoId" class="button" onclick="fnRedo()">Redo</button>
+      <button id="replayId" class="button" onclick="fnReplay()">Replay</button>
+    </div>
+  </div>
+  <script src="Planks.js" type="text/javascript"></script>
+</body>
+</html>

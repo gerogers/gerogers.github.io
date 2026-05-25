@@ -1,0 +1,108 @@
+<!DOCUMENT HTML>
+<! vi:set ts=50 sw=2 ai ml: >
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1">
+    <title>Cups and Peas</title><link rel="stylesheet" href="cupsAndPeas.css">
+</head>
+<body onresize="resize()">
+  <div>
+    <div class="topnav">
+      <div class="dropdown">
+        <button onclick="actions()" class="dropbtn">Actions</button>
+        <div id="actionsDrop" class="actions-content">
+          <a href="#1" onclick="reset();return false;">Reset</a>
+          <a href="#3" onclick="done();return false;">Exit</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="menu()" class="dropbtn">Menu</button>
+        <div id="menuDrop" class="dropdown-content">
+          <b>Synchronised-Tilt Mazes</b><br>
+          <a href="#4" onclick="puzl(0);return false;">Hidey-Hole (5x5)</a>
+          <a href="#4" onclick="puzl(1);return false;">Crossroads (5x5)</a>
+          <a href="#4" onclick="puzl(2);return false;">The Trap (5x5)</a>
+          <a href="#4" onclick="puzl(3);return false;">The Windmill (5x5)</a>
+          <a href="#4" onclick="puzl(4);return false;">Herring Bones (5x5)</a>
+          <a href="#4" onclick="puzl(5);return false;">Side Step (5x5)</a>
+          <a href="#4" onclick="puzl(6);return false;">Four Rooms (6x6)</a>
+          <a href="#4" onclick="puzl(7);return false;">ZigZag (6x6)</a>
+          <hr>
+          <b>Cups and Peas</b><br>
+          <a href="#4" onclick="puzl(8);return false;">Two of each</a>
+          <a href="#4" onclick="puzl(9);return false;">Two plus two, no walls
+          </a>
+          <a href="#4" onclick="puzl(10);return false;">Three plus three</a>
+          <a href="#4" onclick="puzl(11);return false;">Introducing spare cups
+          </a>
+          <a href="#4" onclick="puzl(12);return false;">3 x 3 maze</a>
+          <a href="#4" onclick="puzl(13);return false;">Four + four</a>
+          <a href="#4" onclick="puzl(14);return false;">The spiral</a>
+          <a href="#4" onclick="puzl(15);return false;">
+                                            Reminiscent of The Titanic</a>
+          <a href="#4" onclick="puzl(16);return false;">Another 5 x 5</a>
+          <a href="#4" onclick="puzl(17);return false;">Christmas Tree</a>
+          </a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="help()" class="dropbtn">Help</button>
+        <div id="helpDrop" class="dropdown-content">
+          <a href="#5" onclick="about();return false;">About</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <div id="msgDrop" class="display-content">
+          <a href="#7" onclick="dismiss();return false;">
+            Cups and Peas js version 1.0<br>&copy; Graham Rogers, 2020<br>
+            Synchro-tilt puzzles,<br>&copy; Andrea Gilbert,<br>
+            [ click here to dismiss ]</a>
+      </div>
+    </div>
+    <div id="puzzleId" class="heading-text">Puzzle name</div>
+    <canvas id="cups" onmouseDown="mouseDown(event)" onmouseUp="mouseUp(event)">
+      <param class="params" title="Hidey-Holes (5x5)"
+        value="CAEJCgAAAAADVQAAAgAAAQAAAAACAAACAQAAAAAAhIooJAA="></param>
+      <param class="params" title="Crossroads (5x5)"
+        value="CAEJCgAAAAADVQACAAEAAoUCiQEBAAABAAAnAioAAAACAAA="></param>
+      <param class="params" title="The Trap (5x5)"
+        value="CAEJCgAAAAADVQADAAAAAAABAgGFKAKIAAIAAAEAACQCAAA="></param>
+      <param class="params" title="The Windmill (5x5)"
+        value="CAEJCgAAAAADVQIAAAABAAECAIQoAAABJIkCAAAAAAAAAgA="></param>
+      <param class="params" title="Herring Bones (5x5)"
+        value="CAEJCgAAAAADVQABAAIAAQCKAAEAKgAlAAIAhQAAAAAAAgA="></param>
+      <param class="params" title="Side Step (5x5)"
+        value="CAEJCgAAAAADVQCEKwAAAYgkAAEAAgAAAAEAAAEAAAACAAA="></param>
+      <param class="params" title="Four Rooms (6x6)"
+        value="CAEJCgAAAAADZgADAIoAAAAAAAAAAAEAJwEAAQAAKgAAAAAAAAABAAACAIYAAA=">
+      </param>
+      <param class="params" title="ZigZag (5x5)"
+        value="CAEJCgAAAAADZiiKAAEAAAAAAwAAAQIBAAIBAAECAAECAAAAAwAAAAAAAAIkhA=">
+      </param>
+      <param class="params" title="Two of each"
+        value="CAEJCgAAAAAAM6gCAIQAiKQAAA=="></param>
+      <param class="params" title="Two plus two, no walls"
+        value="CAEJCgAAAAAAMwAAhAAkKAAAiA=="></param>
+      <param class="params" title="Three plus three"
+        value="CAEJCgAAAAAAMwAkhCgAJIgoAA=="></param>
+      <param class="params" title="Introducing spare cups"
+        value="CAEJCgAAAAAAMwAkiAQABACEKA=="></param>
+      <param class="params" title="3 x 3 maze"
+        value="CAEJCgAAAAAAM0oBRCmFAIgAJA=="></param>
+      <param class="params" title="Four plus four"
+        value="CAEJCgAAAAAARIkAJ4SGAAAAAAGKKSoAACQ="></param>
+      <param class="params" title="The spiral"
+        value="CAEJCgAAAAAARCgBAYgChCYAAieGAIgABCg="></param>
+      <param class="params" title="Reminiscent of The Titanic"
+        value="CAEJCgAAAAAAVSgBAAElKgEAASUoAQQBJSoBAAElKAAAACQ="></param>
+      <param class="params" title="Another 5 x 5"
+        value="CAEJCgAAAAAAVQEAhQABAAGKAgAmKAQrJAEDiAEAAACEAgA="></param>
+      <param class="params" title="Christmas Tree"
+        value="CAEJCgAAAAAAeABISEhJSYiIAAABA0QmKCgAA4REhEYDBAJFRCREJEUEAAKFRYRGAgQAAAACRScoKABISEhISIiI="></param>
+      Your browser does not support the canvas element.
+    </canvas>
+  </div>
+  <script src="CaP2.js" type="text/javascript"></script>
+</body>
+</html>

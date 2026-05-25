@@ -1,0 +1,105 @@
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  background-color: #eeeeee;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 4px 8px;
+  background-color: #eeeeee;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.dropbtn-disabled {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 4px 8px;
+  background-color: #eeeeee;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #cccccc;
+  }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.display-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 260px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.display-content a {
+  color: black;
+  padding: 4px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content, .actions-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 240px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a, .actions-content a {
+  color: black;
+  padding: 4px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover, .actions-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.heading-text {
+  background-color: #ccccff;
+  padding: 4px 0px;
+  font-size: 16px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.score-text {
+  background-color: #dddddd;
+  color: black;
+  padding: 4px;
+  width: 370px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
+}
+
+</style>
